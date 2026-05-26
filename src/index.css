@@ -1,0 +1,281 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+}
+
+/* Premium dark-first spiritual UI (reference mockup) */
+:root {
+  --bg-base: #0c0f14;
+  --bg-surface: #141820;
+  --bg-elevated: rgba(22, 28, 38, 0.92);
+  --bg-glass: rgba(20, 26, 36, 0.65);
+  --bg-tile: rgba(18, 24, 34, 0.85);
+  --text-primary: #f4f5f7;
+  --text-secondary: #9ca3b8;
+  --text-muted: #6b7289;
+  --accent: #e8b84a;
+  --accent-dim: #c9a227;
+  --accent-soft: rgba(232, 184, 74, 0.12);
+  --accent-glow: rgba(255, 214, 90, 0.45);
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 32px rgba(232, 184, 74, 0.15);
+  --nav-bg: rgba(12, 15, 20, 0.92);
+  --gradient-ambient-1: rgba(88, 120, 200, 0.08);
+  --gradient-ambient-2: rgba(232, 184, 74, 0.06);
+  --purple-accent: #a78bfa;
+  --green-accent: #4ade80;
+  --blue-accent: #60a5fa;
+  --pink-accent: #f472b6;
+  --home-card-bg: linear-gradient(145deg, rgba(28, 34, 48, 0.85) 0%, rgba(16, 20, 30, 0.92) 100%);
+  --home-card-border: rgba(255, 255, 255, 0.08);
+  --home-card-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --nav-bar-bg: linear-gradient(180deg, rgba(14, 18, 26, 0.97) 0%, rgba(10, 12, 18, 0.99) 100%);
+  --nav-bar-border: rgba(255, 255, 255, 0.06);
+  --modal-overlay: rgba(10, 15, 25, 0.55);
+  --btn-jaap-text: #1a1408;
+  --avatar-ring-border: #141820;
+  --muhurat-green: rgba(6, 78, 59, 0.45);
+  --muhurat-green-border: rgba(6, 95, 70, 0.4);
+  --muhurat-rose: rgba(136, 19, 55, 0.35);
+  --muhurat-rose-border: rgba(159, 18, 57, 0.35);
+  --ambient-top: rgba(18, 24, 36, 0.8);
+  --ambient-bottom: #0a0d12;
+  color-scheme: dark;
+}
+
+.light {
+  --bg-base: #f4f1e8;
+  --bg-surface: #ffffff;
+  --bg-elevated: rgba(255, 255, 255, 0.98);
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --bg-tile: rgba(255, 255, 255, 0.95);
+  --text-primary: #1a1f2e;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --accent: #9a7209;
+  --accent-dim: #7d5c07;
+  --accent-soft: rgba(154, 114, 9, 0.14);
+  --accent-glow: rgba(184, 134, 11, 0.2);
+  --border: rgba(26, 31, 46, 0.1);
+  --border-strong: rgba(26, 31, 46, 0.16);
+  --shadow-soft: 0 8px 28px rgba(26, 31, 46, 0.08);
+  --shadow-glow: 0 0 24px rgba(184, 134, 11, 0.15);
+  --nav-bg: rgba(255, 255, 255, 0.96);
+  --gradient-ambient-1: rgba(139, 92, 246, 0.06);
+  --gradient-ambient-2: rgba(184, 134, 11, 0.08);
+  --purple-accent: #7c3aed;
+  --green-accent: #059669;
+  --blue-accent: #2563eb;
+  --pink-accent: #db2777;
+  --home-card-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 241, 232, 0.95) 100%);
+  --home-card-border: rgba(26, 31, 46, 0.1);
+  --home-card-shadow: 0 8px 28px rgba(26, 31, 46, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --nav-bar-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 241, 232, 0.99) 100%);
+  --nav-bar-border: rgba(26, 31, 46, 0.08);
+  --modal-overlay: rgba(26, 31, 46, 0.35);
+  --btn-jaap-text: #1a1408;
+  --avatar-ring-border: #ffffff;
+  --muhurat-green: rgba(5, 150, 105, 0.1);
+  --muhurat-green-border: rgba(5, 150, 105, 0.25);
+  --muhurat-rose: rgba(190, 24, 93, 0.08);
+  --muhurat-rose-border: rgba(190, 24, 93, 0.2);
+  --ambient-top: rgba(244, 241, 232, 0.6);
+  --ambient-bottom: #f4f1e8;
+  color-scheme: light;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+html:not(.light) {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  transition: background-color 0.4s ease, color 0.3s ease;
+  overscroll-behavior: none;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.spirit-card {
+  background: var(--bg-tile);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.spirit-tile {
+  background: var(--bg-tile);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.spirit-tile:active {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-glow);
+}
+
+.gold-text {
+  color: var(--accent);
+}
+
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.gpu {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.safe-pb {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, var(--bg-glass) 0%, var(--accent-soft) 50%, var(--bg-glass) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+@keyframes nav-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.nav-jaap-active {
+  animation: nav-pulse 2.5s ease-in-out infinite;
+}
+
+.home-glass-card {
+  background: var(--home-card-bg);
+  border: 1px solid var(--home-card-border);
+  border-radius: 20px;
+  box-shadow: var(--home-card-shadow);
+  backdrop-filter: blur(12px);
+}
+
+.app-bottom-nav {
+  background: var(--nav-bar-bg);
+  border-top: 1px solid var(--nav-bar-border);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.light .app-bottom-nav {
+  box-shadow: 0 -4px 20px rgba(26, 31, 46, 0.06);
+}
+
+.nav-icon-slot {
+  background: transparent;
+}
+
+.nav-icon-active {
+  background: var(--accent-soft);
+  box-shadow: var(--shadow-glow);
+}
+
+.nav-icon-astro-active {
+  background: rgba(167, 139, 250, 0.15);
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.25);
+}
+
+.light .nav-icon-astro-active {
+  background: rgba(124, 58, 237, 0.12);
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.18);
+}
+
+.btn-jaap-primary {
+  color: var(--btn-jaap-text);
+  background: linear-gradient(to right, #e8c56a, #d4a853, #a67c2e);
+  box-shadow: 0 4px 20px rgba(232, 184, 74, 0.35);
+}
+
+.light .btn-jaap-primary {
+  background: linear-gradient(to right, #d4a853, #b8860b, #8b6914);
+  box-shadow: 0 4px 16px rgba(184, 134, 11, 0.28);
+}
+
+.avatar-img-border {
+  border-color: var(--avatar-ring-border);
+}
+
+.muhurat-green {
+  background: var(--muhurat-green);
+  border-color: var(--muhurat-green-border);
+}
+
+.muhurat-rose {
+  background: var(--muhurat-rose);
+  border-color: var(--muhurat-rose-border);
+}
+
+.modal-overlay {
+  background: var(--modal-overlay);
+}
+
+.theme-toggle-track {
+  background: var(--border);
+  border: 1px solid var(--border-strong);
+  transition: background 0.3s ease;
+}
+
+.theme-toggle-track.is-dark {
+  background: rgba(30, 40, 58, 0.9);
+}
+
+.theme-toggle-track.is-light {
+  background: rgba(232, 184, 74, 0.35);
+}
+
+.theme-toggle-thumb {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+}
+
+.ambient-gradient-top {
+  background: linear-gradient(to bottom, var(--ambient-top), var(--bg-base), var(--ambient-bottom));
+}
+
+.sun-glyph-glow {
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.light .quick-action-orb {
+  box-shadow: 0 4px 16px rgba(26, 31, 46, 0.08) !important;
+}
+
